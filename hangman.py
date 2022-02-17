@@ -1,7 +1,7 @@
 '''THE HANGMAN GAME'''
 
-name=raw_input("Enter your name:")
-print"Hello",name,"! Time to play HANGMAN!"
+name=input("Enter your name:")
+print ("Hello",name,"! Time to play HANGMAN!")
 
 import random
 import turtle
@@ -18,28 +18,28 @@ chance=7
 a=random.randint(0,len(word)-1)             # selects a word randomly from file 'Words.txt'
 secret=word[a]
 guesses=' '
-print'You have 7 chances to guess the place'
+print ('You have 7 chances to guess the place')
 
 while chance>0:
     c=0
     for i in secret:
         if i in guesses:
-            print i,
+            print (i),
         else:
-            print' __ ',
+            print (' __ '),
             c+=1
-    print '\n'
+    print ('\n')
     
     if c==0:                         # no blanks left, won game
-        print'Bravo!!! You Won :-) '
+        print ('Bravo!!! You Won :-) ')
         break
-    guess=raw_input('Guess letter:')
+    guess=input('Guess letter:')
     guesses+=guess
     
     if guess not in secret:
         chance-=1
-        print"You guessed a wrong letter"
-        print"You have",chance,"more chances left",'\n'
+        print ("You guessed a wrong letter")
+        print ("You have",chance,"more chances left",'\n')
         
         if chance ==6:              # face
             turtle.lt(90)
@@ -94,8 +94,8 @@ while chance>0:
             turtle.fd(300)
             turtle.bk(600)
             
-            print"You lose  :-( ",'\n'                                              # lost game
-            print "The word was",secret,'\n' "Try again"                # game over
+            print ("You lose  :-( ",'\n')                                              # lost game
+            print ("The word was",secret,'\n' "Try again")                # game over
             
          
       
